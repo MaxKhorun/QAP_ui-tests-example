@@ -18,8 +18,8 @@ def pytest_runtest_makereport(item, call):
 @pytest.fixture
 def web_browser(request):
 
-    browser = webdriver.Chrome()
-    browser.set_window_size(1400, 1000)
+    browser = webdriver.ChromiumEdge()
+    browser.maximize_window()
 
     # Return browser instance to test case:
     yield browser
