@@ -28,3 +28,5 @@ trio==0.22.0
 trio-websocket==0.10.3
 urllib3==2.0.3
 wsproto==1.2.0
+
+python-dotenv~=1.0.0

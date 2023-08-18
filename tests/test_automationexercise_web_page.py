@@ -30,3 +30,21 @@ def test_check_wrong_input_in_search(web_browser):
 
     # Verify that user can see empty list of products:
     assert page.products_titles.count() == 0
+
+
+def test_check_sort_by_price(web_browser):
+    """ Проверка сортировки
+    """
+    page = MainPage(web_browser)
+
+    page.search = "Чайник"
+    page.search_run_button.click()
+
+    page.sort_products_by_price.scroll_to_element()
+    page.sort_products_by_price.click()
+    page.wait_page_loaded()
+
+    all_prices = page.product_prices.get_text()
+    all_prices = [float(p.replace(' ', '')) for p in all_prices]
+
+    assert all_prices == sorted(all_prices), "Sort by price doesn't work"

@@ -21,3 +21,6 @@ class MainPage(WebPage):
 
     # Titles of the products in search results
     products_titles = ManyWebElements(xpath="//div[contains(@class, 'productinfo text-center')]")
+
+    product_prices = ManyWebElements(CSS=".productinfo.text-center>h2"[0])
+
